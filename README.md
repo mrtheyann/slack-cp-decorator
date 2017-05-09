@@ -6,7 +6,7 @@ Simple Python3 script to prettify messages copied from Slack by removing some si
 
 Clone:
 
-`git clone https://github.com/mrtheyann/`
+`https://github.com/mrtheyann/slack-cp-decorator.git`
 
 Launch:
 
