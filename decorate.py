@@ -13,6 +13,8 @@ def read_file(filepath):
             line = line.strip()
             if (len(line) in range(4, 6)) and line[-2:].isdigit():
                 continue
+            if len(line) in range(6, 8) and line[-3:-1].isdigit():
+                continue
             else:
                 summary.append(line)
         f.close()
@@ -50,6 +52,8 @@ def main():
         print('Invalid filepath')
     except FileNotFoundError:
         print('File not found')
+    except UnicodeDecodeError:
+        print('Please, set encoding of your file to utf-8')
     pass
 
 
