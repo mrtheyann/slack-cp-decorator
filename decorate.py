@@ -2,6 +2,8 @@
 # coding: utf8
 
 from sys import argv
+from os.path import abspath
+
 
 def read_file(filepath):
     summary = []
@@ -9,7 +11,7 @@ def read_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
-            if (len(line) in range(4,6)) and line[-2:].isdigit():
+            if (len(line) in range(4, 6)) and line[-2:].isdigit():
                 continue
             else:
                 summary.append(line)
@@ -17,13 +19,15 @@ def read_file(filepath):
 
     return summary
 
+
 def format_input(summary):
     for index, line in enumerate(summary):
-        if (len(line)) in range(7,9) and line[-2:] in ('AM', 'PM'):
+        if (len(line)) in range(7, 9) and line[-2:] in ('AM', 'PM'):
             summary[index-1] = '\n{0} [{1}]'.format(summary[index-1], line)
             del summary[index]
 
     return summary
+
 
 def assemble_output(summary):
     with open('output.txt', 'w+', encoding='utf-8') as f:
@@ -31,6 +35,7 @@ def assemble_output(summary):
         f.close()
 
     print('Decoration complete!\n')
+    print('Output path: {0}'.format(abspath('output.txt')))
 
 
 def main():
@@ -41,7 +46,6 @@ def main():
         formatted = format_input(summary)
         print('Decorating..\n')
         assemble_output(formatted)
-        print('Result: Output.txt')
     except IndexError:
         print('Invalid filepath')
     except FileNotFoundError:
