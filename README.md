@@ -1,6 +1,6 @@
 # Slack copypaste decorator
 
-Simple Python3 script to prettify messages copied from Slack by removing some side effects appeared during copying.
+Simple Python3 script to prettify messages copied from Slack by removing some side effects that could appeared during copying.
 
 ### How to use
 
